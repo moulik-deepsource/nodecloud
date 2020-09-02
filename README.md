@@ -71,8 +71,8 @@ const providers = [
     name: "aws",
     tag: "aws",
     plugin: nodeCloudAwsPlugin,
-    configPath: "./aws-config.json"
-  }
+    configPath: "./aws-config.json",
+  },
 ];
 
 module.exports = providers;
@@ -85,11 +85,11 @@ module.exports = providers;
 ```js
 const nodeCloud = require("nodecloud");
 const optionsProvider = {
-  overrideProviders: false
+  overrideProviders: false,
 };
 const ncProviders = nodeCloud.getProviders(optionsProvider);
 const options = {
-  apiVersion: "2016-11-15"
+  apiVersion: "2016-11-15",
 };
 
 const params = {
@@ -97,20 +97,20 @@ const params = {
   InstanceType: "t1.micro",
   KeyName: "nodeCloud", // key name of Key pair
   MinCount: 1,
-  MaxCount: 1
+  MaxCount: 1,
 };
 const instanceParams = {
   Key: "Name",
-  Value: "Node Cloud demo"
+  Value: "Node Cloud demo",
 };
 
 const ec2 = ncProviders.aws.compute(options);
 ec2
   .createInstance(params, instanceParams)
-  .then(res => {
+  .then((res) => {
     console.log(`All done ! ${res}`);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(`Oops something happened ${err}`);
   });
 ```
@@ -122,7 +122,7 @@ NodeCloud officialy supports AWS, GCP, Azure, DigitalOcean and AliCloud. If you 
 ```js
 const nodeCloud = require("nodecloud");
 const options = {
-  overrideProviders: true
+  overrideProviders: true,
 };
 const ncProviders = nodeCloud.getProviders(options);
 ```
