@@ -11,3 +11,7 @@ enabled = true
   [analyzers.meta]
   module_system = "commonjs"
   environment = ["nodejs"]
+
+[[transformers]]
+    name = "prettier"
+    enabled = true
